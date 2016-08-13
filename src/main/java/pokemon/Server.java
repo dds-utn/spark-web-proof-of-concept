@@ -1,17 +1,19 @@
 package pokemon;
 
-import static spark.Spark.*;
-
-import pokemon.model.Usuario;
-import pokemon.repositories.UsuarioRepositorio;
+import spark.Spark;
+import spark.template.handlebars.HandlebarsTemplateEngine;
 
 public class Server {
 	public static void main(String[] args) {
 		Bootstrap.init();
 
-		Usuario usuario = UsuarioRepositorio.get().findAny();
+		
+	    HandlebarsTemplateEngine engine = 
+	    		new HandlebarsTemplateEngine();
 
-		get("/usuario", (req, res) -> usuario.getUsuario());
+		Spark.get("/usuario", (request, response) -> ControllerUsuario.show(request, response), engine);
 
+		Spark.get("/pokemon/:nombre", (request, response) -> 
+				"Aca deberia ir un pokemon: " + request.params(":nombre"));
 	}
 }
