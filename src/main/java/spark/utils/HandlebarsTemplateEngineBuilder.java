@@ -1,9 +1,5 @@
 package spark.utils;
 
-import java.lang.reflect.Field;
-
-import org.apache.commons.lang3.reflect.FieldUtils;
-
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
 import com.github.jknack.handlebars.Handlebars;
@@ -33,13 +29,7 @@ public class HandlebarsTemplateEngineBuilder {
 	}
 
 	private Handlebars getHandlerbars() {
-		try {
-			Field field = FieldUtils.getField(this.engine.getClass(),
-					"handlebars", true);
-			return (Handlebars) field.get(this.engine);
-		} catch (Exception e) {
-			throw new RuntimeException("cannot get handlebars", e);
-		}
+		return (Handlebars) DarkMagic.getField(this.engine, "handlebars");
 	}
 
 	public HandlebarsTemplateEngine build() {
