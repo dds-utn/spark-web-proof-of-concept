@@ -1,7 +1,12 @@
 package server;
 
+import spark.Spark;
+import spark.debug.DebugScreen;
+
 public class Server {
 	public static void main(String[] args) {
-		System.out.println("Run");
+		Spark.port(9000);
+		DebugScreen.enableDebugScreen();
 	}
+
 }
