@@ -22,6 +22,24 @@
 
 <h1>Proyectos</h1>
 
+<table class="table table-stripped">
+	<tr>
+		<th>Nombre</th>
+		<th>Costo Estimado</th>
+		<th>Está Asignado</th>
+		<th></th>
+	</tr>
+	
+	{{#each proyectos}}
+		<tr>
+			<td>{{nombre}}</td>
+			<td>{{costoEstimado}}</td>
+			<td>{{estaAsignado}}</td>
+			<td><a href="{{url}}">Ver</a><td>
+		</tr>
+	{{/each}}
+</table>
+
 <footer class="footer">
     <p class="text-center">
       &copy; 2015 Consultoreame.com

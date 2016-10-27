@@ -47,4 +47,16 @@ public class Proyecto {
     this.consultoraEncargada = consultora;
 
   }
+  
+  public String getEstaAsignado(){
+	  return this.consultoraEncargada == null ? "No" : "Sí";
+  }
+  
+  public long getId(){
+	  return this.id;
+  } 
+  
+  public String getUrl(){
+	  return "proyectos/" + getId();
+  }
 }
