@@ -48,8 +48,8 @@ public class Proyecto {
 
   }
   
-  public String getEstaAsignado(){
-	  return this.consultoraEncargada == null ? "No" : "Sí";
+  public boolean getEstaAsignado(){
+	  return this.consultoraEncargada != null;
   }
   
   public long getId(){

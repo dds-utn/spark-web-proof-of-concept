@@ -20,25 +20,38 @@ import spark.Request;
 import spark.Response;
 
 public class ProyectosControllerTest extends AbstractPersistenceTest implements WithGlobalEntityManager{
-	private ProyectosController controlador;
+	private ProyectosController controller;
 	private Request request;
 	private Response response;
 	
 	@Before
 	public void setUp(){
-		controlador = new ProyectosController();
+		controller = new ProyectosController();
 		request = mock(Request.class);
 		response = mock(Response.class);
 	}
 	
 	@Test
+	@SuppressWarnings("unchecked")
 	public void indexSinParametrosDevuelveTodosLosProyectos(){
 		RepositorioProyectos.instancia.agregar(new Proyecto("Proyecto 1", new BigDecimal(1000)));
 		RepositorioProyectos.instancia.agregar(new Proyecto("Proyecto 2", new BigDecimal(2000)));
 		
-		ModelAndView modelAndView = controlador.index(request, response);
+		ModelAndView modelAndView = controller.listar(request, response);
 		Map<String, ArrayList<Proyecto>> viewModel = (Map<String, ArrayList<Proyecto>>) modelAndView.getModel();
 		assertEquals(2, viewModel.get("proyectos").size());
+	}
+	
+	@Test
+	@SuppressWarnings("unchecked")
+	public void showDevuelveElProyectoDelIdIndicado(){
+		Proyecto proyecto = new Proyecto("Proyecto 1", new BigDecimal(1000));
+		RepositorioProyectos.instancia.agregar(proyecto);
+		
+		when(request.params("id")).thenReturn(String.valueOf(proyecto.getId()));
+		ModelAndView modelAndView = controller.mostrar(request, response);
+		Map<String, Proyecto> viewModel = (Map<String, Proyecto>) modelAndView.getModel();
+		assertSame(proyecto, viewModel.get("proyecto"));
 	}
 	
 }

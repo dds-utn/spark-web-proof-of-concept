@@ -1,35 +1,11 @@
-<html>
-<head>
-	<link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  	<link rel="stylesheet"  href="main.css">
-</head>
-<body>
+{{#partial "contenido"}}
 
-<nav class="navbar navbar-default">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand"href="/">Consultorea.me</a>
-      </div>
-      <div>
-        <ul class="nav navbar-nav">
-          <li><a href="/consultoras">Consultoras</a></li>
-          <li><a href="/proyectos">Proyectos</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+{{#with proyecto}}
+	<h1> Proyecto {{nombre}} </h1>
+	
+	<p><strong>Costo estimado:</strong> {{costoEstimado}}</p>
+	<p><strong>Está asignado:</strong> {{isTrue estaAsignado}}</p>
+{{/with}}
+{{/partial}}
 
-
-<h1> Proyecto {{nombre}} </h1>
-
-<p><strong>Costo estimado:</strong> {{costo_estimado}}</p>
-<p><strong>Está asignado:</strong> {{esta_asignado}}</p>
-
-
-<footer class="footer">
-    <p class="text-center">
-      &copy; 2015 Consultoreame.com
-    </p>
-</footer>
-</body>
-</html>
+{{>layout.hbs}}

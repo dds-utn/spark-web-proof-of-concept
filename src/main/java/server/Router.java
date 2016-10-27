@@ -4,6 +4,7 @@ import controllers.HomeController;
 import controllers.ProyectosController;
 import spark.Spark;
 import spark.template.handlebars.HandlebarsTemplateEngine;
+import spark.utils.BooleanHelper;
 import spark.utils.HandlebarsTemplateEngineBuilder;
 
 public class Router {
@@ -12,14 +13,18 @@ public class Router {
 		HandlebarsTemplateEngine engine = HandlebarsTemplateEngineBuilder
 				.create()
 				.withDefaultHelpers()
+				.withHelper("isTrue", BooleanHelper.isTrue)
 				.build();
 
 		Spark.staticFiles.location("/public");
 		
+		ProyectosController proyectosController = new ProyectosController();
 		
 		Spark.get("/", HomeController::home, engine);
-		Spark.get("/proyectos", ProyectosController::index, engine);
-		Spark.get("/proyectos/:id", ProyectosController::show, engine);
+		Spark.get("/proyectos", proyectosController::listar, engine);
+		Spark.get("/proyectos/new", proyectosController::nuevo, engine);
+		Spark.get("/proyectos/:id", proyectosController::mostrar, engine);
+		Spark.post("/proyectos", proyectosController::crear);
 	}
 
 }
