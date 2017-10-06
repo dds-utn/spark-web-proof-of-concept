@@ -29,7 +29,7 @@ public class HandlebarsTemplateEngineBuilder {
 	}
 
 	private Handlebars getHandlerbars() {
-		return (Handlebars) DarkMagic.getField(this.engine, "handlebars");
+		return (Handlebars) ReflectionUtils.getField(this.engine, "handlebars");
 	}
 
 	public HandlebarsTemplateEngine build() {
