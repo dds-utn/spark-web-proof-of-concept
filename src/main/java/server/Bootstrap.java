@@ -11,6 +11,10 @@ import model.Proyecto;
 
 public class Bootstrap implements WithGlobalEntityManager, EntityManagerOps, TransactionalOps{
 	
+	public static void main(String[] args) {
+		new Bootstrap().init();
+	}
+	
 	public void init(){
 		withTransaction(() ->{
 			Proyecto proyecto = new Proyecto("Proyecto 1", new BigDecimal(1000));
