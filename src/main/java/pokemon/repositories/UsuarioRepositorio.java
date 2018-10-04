@@ -21,10 +21,6 @@ public class UsuarioRepositorio {
 		return usuarios.stream().findAny().orElse(null);
 	}
 	
-	public Usuario findByUsername(int username) {
-		throw new RuntimeException("findByUsername aun no esta implementado");
-	}
-
 	public void registrar(Usuario usuario) {
 		usuarios.add(usuario);
 	}

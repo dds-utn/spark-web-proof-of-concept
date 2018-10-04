@@ -2,6 +2,9 @@ package pokemon.model;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import org.apache.commons.lang3.StringUtils;
 
 public class Usuario {
 
@@ -39,6 +42,10 @@ public class Usuario {
 	@Override
 	public String toString() {
 		return "Usuario [usuario=" + nombre + ", capturas=" + capturas + "]";
+	}
+
+	public List<Captura> findByApodo(String unApodo) {
+		return this.capturas.stream().filter(usuario -> StringUtils.startsWithIgnoreCase(usuario.getApodo(), unApodo)).collect(Collectors.toList());
 	}
 
 }
