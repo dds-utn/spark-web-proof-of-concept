@@ -1,6 +1,7 @@
 package server;
 
 import controllers.HomeController;
+import controllers.LoginController;
 import controllers.ProyectosController;
 import spark.Spark;
 import spark.template.handlebars.HandlebarsTemplateEngine;
@@ -15,12 +16,14 @@ public class Router {
 				.withDefaultHelpers()
 				.withHelper("isTrue", BooleanHelper.isTrue)
 				.build();
-
+		
 		Spark.staticFiles.location("/public");
 		
 		ProyectosController proyectosController = new ProyectosController();
 		
 		Spark.get("/", HomeController::home, engine);
+		Spark.get("/login", LoginController::show, engine);
+		Spark.post("/login", LoginController::login, engine);
 		Spark.get("/proyectos", proyectosController::listar, engine);
 		Spark.get("/proyectos/new", proyectosController::nuevo, engine);
 		Spark.get("/proyectos/:id", proyectosController::mostrar, engine);
