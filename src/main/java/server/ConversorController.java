@@ -12,8 +12,14 @@ public class ConversorController {
 	public String convertirAMillas(Request req, Response res) {
 		String km = req.queryParams("km");
 		HashMap<String, Object> viewModel = new HashMap();
-		viewModel.put("millas", 980);
-		ModelAndView modelAndView = new ModelAndView(viewModel, "prueba.hbs");
+	
+		Boolean hayKilometros = km !=null;
+		Double millas = hayKilometros? calcularMillas(km) : 0;
+		
+		viewModel.put("km", km);
+		viewModel.put("hayKilometros", hayKilometros);
+		viewModel.put("millas", millas);
+		ModelAndView modelAndView = new ModelAndView(viewModel, "conversor.hbs");
 		return new HandlebarsTemplateEngine().render(modelAndView);
 		
 	/*	
@@ -39,5 +45,10 @@ public class ConversorController {
 */
 		
 		
+	}
+
+	private Double calcularMillas(String km) {
+		Double kmNumero = Double.parseDouble(km);			
+		return new Conversor().convertirAMillas(kmNumero);
 	}
 }
