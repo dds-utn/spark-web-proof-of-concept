@@ -1,4 +1,5 @@
-<html>
+{{#partial "contenido" }}
+
 	<form method='get' action='/conversor/millas'>
 		<input name='km' value='{{km}}'/>
 		<button type='submit'>Convertir!</button>
@@ -10,4 +11,6 @@
 				millas: {{millas}}
 				{{/if}}
 	</form>
-<html>
+{{/partial}}
+
+{{> layout.hbs}}

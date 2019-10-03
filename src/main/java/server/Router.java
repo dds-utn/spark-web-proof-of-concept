@@ -21,6 +21,10 @@ public class Router {
 
 		ConversorController controller = new ConversorController();
 		Spark.get("/conversor/millas", controller::convertirAMillas);
+		Spark.get("/otra", controller::otra);
+		Spark.get("/otraConOtroLayout", controller::otraConOtroLayout);
+
+		
 	}
 
 }

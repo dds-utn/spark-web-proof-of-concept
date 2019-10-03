@@ -6,9 +6,26 @@ import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 import spark.template.handlebars.HandlebarsTemplateEngine;
-
+//TODO: ESTO ESTA TODO REPETIDO, ES SOLO UN EJEMPLO DE MUESTRA!!!!! ABSTRAER Y DELEGAR!
 public class ConversorController {
-
+	public String otra(Request req, Response res) {
+		
+		HashMap<String, Object> viewModel = new HashMap();
+		viewModel.put("otroDato", "eeeeeeeee");
+		ModelAndView modelAndView = new ModelAndView(viewModel, "otra.hbs");
+		return new HandlebarsTemplateEngine().render(modelAndView);
+		
+	}
+	
+	public String otraConOtroLayout(Request req, Response res) {
+		
+		HashMap<String, Object> viewModel = new HashMap();
+		viewModel.put("otroDato", "eeeeeeeee");
+		ModelAndView modelAndView = new ModelAndView(viewModel, "otraConOtroLayout.hbs");
+		return new HandlebarsTemplateEngine().render(modelAndView);
+		
+	}
+	
 	public String convertirAMillas(Request req, Response res) {
 		String km = req.queryParams("km");
 		HashMap<String, Object> viewModel = new HashMap();
