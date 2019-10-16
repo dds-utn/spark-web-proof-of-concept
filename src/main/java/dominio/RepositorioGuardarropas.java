@@ -8,7 +8,7 @@ public class RepositorioGuardarropas {
 		return INSTANCE;
 	}
 
-	public Guardarropa findByUsuario(Usuario usuario) {
+	public Guardarropa findByUsuario(Usuarie usuario) {
 		Guardarropa guardarropas = new Guardarropa("ropa sport");
 		guardarropas.getPrendas().add(new Prenda("remera", Color.VERDE));
 		guardarropas.getPrendas().add(new Prenda("jean", Color.AZUL));
