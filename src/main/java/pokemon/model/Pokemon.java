@@ -35,6 +35,8 @@ public class Pokemon {
 		return this;
 	}
 
+	public String getPrincipalImage() { return this.fotos.get(0); }
+
 	@Override
 	public String toString() {
 		return "Pokemon [tipo=" + tipo + ", nombre=" + nombre + ", fotos=" + fotos + "]";

@@ -1,0 +1,22 @@
+<html>
+<head>
+ <!-- Importar archivos javascript -->
+ <!-- Importar archivos css -->
+ <!-- Escribir css -->
+ <link rel="stylesheet" href="main.css">
+
+</head>
+
+<body>
+    <h1 class="titulo red">Hola {{ nombre }} </h1>
+    <h1 class="titulo">mundo pokemon </h1>
+    <table>
+        {{#each capturas }}
+        <tr>
+            <td class="red"> {{ apodo }} de nivel {{ nivel }} fue capturado el {{ fechaCaptura }}  </td>
+            <!--<td> <img src="{{ pokemon.principalImage }}"/> </td> -->
+        </tr>
+        {{/each}}
+    </table>
+</body>
+</html>
