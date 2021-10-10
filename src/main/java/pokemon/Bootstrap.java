@@ -1,5 +1,7 @@
 package pokemon;
 
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,7 +20,8 @@ public class Bootstrap {
 		
 		Usuario gaston = usuarios.get(0);
 		pokemons.stream().limit(4).forEach((pokemon) -> gaston.capturar(pokemon));
-		
+		gaston.getCapturas().get(0).setFechaDeCaptura(LocalDateTime.now().minus(10, ChronoUnit.DAYS));
+
 	}
 
 	private static List<Pokemon> pokemons() {
@@ -34,13 +37,13 @@ public class Bootstrap {
 		
 		List<Pokemon> pokemons = Arrays.asList(
 				new Pokemon(TipoPokemon.FUEGO, "Charmander", charmeleon)
-					.agregarFoto("http://cdn.bulbagarden.net/upload/thumb/7/73/004Charmander.png/250px-004Charmander.png"), 
+					.agregarFoto("https://www.pikpng.com/pngl/b/125-1255087_png-library-stock-retro-rewind-pinterest-cultura-pop.png"),
 				new Pokemon(TipoPokemon.AGUA, "Psyduck", golduck)
-					.agregarFoto("http://vignette1.wikia.nocookie.net/pokemon/images/e/e2/054Psyduck_Pokemon_Mystery_Dungeon_Red_and_Blue_Rescue_Teams.png/revision/latest?cb=20150106002458"), 
+					.agregarFoto("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c7bca634-434f-4d30-8394-513ca6421852/ddtd2kg-8796ad91-e7c4-49b4-8225-08d1197d47c6.png/v1/fill/w_800,h_800,strp/chibidex___054_psyduck_by_seviyummy_ddtd2kg-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODAwIiwicGF0aCI6IlwvZlwvYzdiY2E2MzQtNDM0Zi00ZDMwLTgzOTQtNTEzY2E2NDIxODUyXC9kZHRkMmtnLTg3OTZhZDkxLWU3YzQtNDliNC04MjI1LTA4ZDExOTdkNDdjNi5wbmciLCJ3aWR0aCI6Ijw9ODAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.zV-KzO0r7YOoa8wWjXWp8XOtLvxUW0pF5bOSsmPHjhI"),
 				new Pokemon(TipoPokemon.NORMAL, "Snorlax", null)
-					.agregarFoto("http://cdn.bulbagarden.net/upload/thumb/f/fb/143Snorlax.png/250px-143Snorlax.png"),
+					.agregarFoto("https://i.pinimg.com/originals/fd/f5/62/fdf562aa3afef2367940aaaf4224220d.jpg"),
 				new Pokemon(TipoPokemon.HADA, "Dedenne", null)
-					.agregarFoto("http://vignette2.wikia.nocookie.net/pokemon/images/a/ad/Dedenne_702_XY_AnimeArt.png/revision/latest?cb=20140830063922"),
+					.agregarFoto("https://d.furaffinity.net/art/huiro/1421855255/1421855255.huiro_%E7%94%B5%E5%A5%B6%E5%A5%B6.png"),
 				new Pokemon(TipoPokemon.PSIQUICO, "Mew", null));
 		
 		pokemons.stream().collect(Collectors.toList()).addAll(Arrays.asList(golduck, charizard, charmeleon));

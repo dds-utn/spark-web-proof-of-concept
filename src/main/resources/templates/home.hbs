@@ -1,22 +1,47 @@
 <html>
-<head>
- <!-- Importar archivos javascript -->
- <!-- Importar archivos css -->
- <!-- Escribir css -->
- <link rel="stylesheet" href="main.css">
-
-</head>
-
-<body>
-    <h1 class="titulo red">Hola {{ nombre }} </h1>
-    <h1 class="titulo">mundo pokemon </h1>
-    <table>
-        {{#each capturas }}
-        <tr>
-            <td class="red"> {{ apodo }} de nivel {{ nivel }} fue capturado el {{ fechaCaptura }}  </td>
-            <!--<td> <img src="{{ pokemon.principalImage }}"/> </td> -->
-        </tr>
-        {{/each}}
-    </table>
-</body>
-</html>
+   <head>
+      <!-- Importar archivos javascript -->
+      <!-- Importar archivos css -->
+      <!-- Escribir css -->
+      <link rel="stylesheet" href="main.css">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+   </head>
+   <!doctype html>
+   <html lang="en">
+      <head>
+         <!-- Required meta tags -->
+         <meta charset="utf-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+         <!-- Bootstrap CSS -->
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+         <title>Pokedex</title>
+      </head>
+      <body>
+         <div class="container">
+            <div class="row">
+               <div class="col"><h1>Pokedex de {{ nombre }} </h1></div>
+            </div>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+               {{#each capturas }}
+               <div class="col p-2">
+                  <div class="card shadow-sm p-2">
+                     <img src="{{ pokemon.principalImage }}" class="card-img-top" alt="{{ pokemon.nombre }}">
+                     <div class="card-body">
+                        <h5 class="card-title">
+                            {{ apodo }}
+                            {{#if nuevo}} <span class="badge rounded-pill bg-info">Nuevo</span> {{/if}}
+                        </h5>
+                        <p class="card-text">
+                            Tiene un nivel de {{ nivel }}, fue capturado el  {{ fechaCaptura }} y
+                            {{#if pokemon.evolucion }} tiene evolución
+                            {{ else }} no tiene evolución.
+                            {{/if}}
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               {{/each}}
+            </div>
+         </div>
+      </body>
+   </html>

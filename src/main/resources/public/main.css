@@ -5,3 +5,8 @@
 .titulo {
     font-size: 20px;
 }
+
+img {
+    height:8rem;
+    object-fit: contain;
+}

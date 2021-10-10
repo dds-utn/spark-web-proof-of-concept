@@ -1,6 +1,8 @@
 package pokemon.model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Period;
 
 public class Captura {
 
@@ -33,10 +35,15 @@ public class Captura {
 		return fechaCaptura;
 	}
 
+	public boolean getNuevo(){ return Period.between(fechaCaptura.toLocalDate(), LocalDate.now()).getDays() <= 1;  }
+
 	@Override
 	public String toString() {
 		return "PokemonCapturado [nombre=" + apodo + ", pokemon=" + pokemon + ", nivel=" + nivel + ", fechaCaptura="
 				+ fechaCaptura + "]";
 	}
 
+	public void setFechaDeCaptura(LocalDateTime date) {
+		this.fechaCaptura = date;
+	}
 }
