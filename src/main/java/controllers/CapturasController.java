@@ -27,7 +27,7 @@ public class CapturasController {
 		model.put("usuario", usuario);
 		model.put("capturas", capturas);
 
-		return new ModelAndView(model, "home.hbs");
+		return new ModelAndView(model, "capturas.hbs");
 		//return "<html> <body> Hola" + UsuarioRepositorio.get().findAny() + " </body></html>";
 	}
 }
