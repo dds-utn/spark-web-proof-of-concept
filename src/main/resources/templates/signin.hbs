@@ -1,0 +1,18 @@
+{{#partial "contenido"}}
+    <form action="/signin" method="POST">
+      <div class="mb-3">
+        <label for="nombreInput" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombreInput" name="nombre" value="{{ nombre }}">
+      </div>
+
+      <div class="mb-3">
+        <label for="passwordInput" class="form-label">Password</label>
+        <input type="password" class="form-control" id="passwordInput" name="password" value="{{ password }}">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Ingresar</button>
+    </form>
+{{/partial}}
+
+
+{{>layout.hbs}}

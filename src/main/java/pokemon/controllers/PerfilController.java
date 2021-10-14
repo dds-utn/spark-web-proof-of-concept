@@ -7,6 +7,6 @@ import spark.Response;
 
 public class PerfilController {
     public ModelAndView index(Request request, Response response) {
-        return new ModelAndView(UsuarioRepositorio.get().findAny(), "perfil.hbs");
+        return new ModelAndView(UsuarioRepositorio.get().findByUsername(request.cookie("usuario_logueado")), "perfil.hbs");
     }
 }

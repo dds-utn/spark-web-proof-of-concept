@@ -16,7 +16,7 @@ public class CapturasController {
 	public ModelAndView index(Request req, Response res) {
 		String filtroParametro = req.queryParams("likeNombre");
 
-		Usuario usuario = UsuarioRepositorio.get().findAny();
+		Usuario usuario = UsuarioRepositorio.get().findByUsername(req.cookie("usuario_logueado"));
 		Map<String, Object> model = new HashMap<>();
 		//List<Captura> capturas = filtro == null ? usuario.getCapturas() : usuario.filtrarPorNombre(filtro);
 		List<Captura> capturas = Optional.ofNullable(filtroParametro)
