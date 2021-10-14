@@ -19,8 +19,17 @@
       <body>
          <div class="container">
             <div class="row">
-               <div class="col"><h1>Pokedex de {{ nombre }} </h1></div>
+               <div class="col"><h1>Pokedex de {{ usuario.nombre }} </h1></div>
             </div>
+
+            <form action="/capturas" method="GET">
+              <div class="mb-3">
+                <label for="searchNombre" class="form-label">Nombre a buscar</label>
+                <input type="text" class="form-control" id="searchNombre" name="likeNombre" value="{{ likeNombre }}">
+              </div>
+              <button type="submit" class="btn btn-primary">Buscar</button>
+            </form>
+
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
                {{#each capturas }}
                <div class="col p-2">

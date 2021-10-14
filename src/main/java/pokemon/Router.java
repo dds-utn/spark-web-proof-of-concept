@@ -1,20 +1,22 @@
 package pokemon;
 
-import com.github.jknack.handlebars.cache.NullTemplateCache;
-import com.github.jknack.handlebars.cache.TemplateCache;
-import controllers.ControllerHome;
-import spark.ResponseTransformer;
+import controllers.CapturasController;
+import pokemon.model.Captura;
 import spark.Spark;
+import spark.debug.DebugScreen;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
 public class Router {
 
 	public static void configure() {
 		HandlebarsTemplateEngine engineTemplate = new HandlebarsTemplateEngine();
+		CapturasController capturasController = new CapturasController();
+
+		DebugScreen.enableDebugScreen();
 
 		Spark.staticFiles.location("public");
-		Spark.get("/me",
-				(request, response) -> ControllerHome.index(request, response),
+		Spark.get("/capturas",
+				(request, response) -> capturasController.index(request, response),
 				engineTemplate);
 	}
 

@@ -1,5 +1,7 @@
 package pokemon.model;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Period;
@@ -46,4 +48,8 @@ public class Captura {
 	public void setFechaDeCaptura(LocalDateTime date) {
 		this.fechaCaptura = date;
 	}
+
+    public boolean sePareceNombreA(String nombre) {
+		return StringUtils.startsWithIgnoreCase(this.apodo, nombre);
+    }
 }
