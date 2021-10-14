@@ -1,4 +1,4 @@
-package pokemon;
+package pokemon.controllers;
 
 import pokemon.repositories.UsuarioRepositorio;
 import spark.ModelAndView;

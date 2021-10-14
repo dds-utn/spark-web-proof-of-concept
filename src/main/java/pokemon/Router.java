@@ -1,7 +1,7 @@
 package pokemon;
 
-import controllers.CapturasController;
-import pokemon.model.Captura;
+import pokemon.controllers.CapturasController;
+import pokemon.controllers.PerfilController;
 import spark.Spark;
 import spark.debug.DebugScreen;
 import spark.template.handlebars.HandlebarsTemplateEngine;

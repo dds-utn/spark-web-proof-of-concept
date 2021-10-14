@@ -1,4 +1,4 @@
-package controllers;
+package pokemon.controllers;
 
 import pokemon.model.Captura;
 import pokemon.model.Usuario;
