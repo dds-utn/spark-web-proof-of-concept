@@ -25,7 +25,7 @@ public class Router {
 
 
 		Spark.get("/signin", signinController::index, engineTemplate);
-		Spark.post("/signin", signinController::post, engineTemplate);
+		Spark.post("/session", signinController::post, engineTemplate);
 	}
 
 }
