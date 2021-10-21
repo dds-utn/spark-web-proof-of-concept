@@ -21,7 +21,7 @@ public class SigninController {
             return new ModelAndView(null, "signin.hbs");
         }
 
-        response.cookie("usuario_logueado", usuario);
+        request.session().attribute("usuario_logueado", usuario);
         response.redirect("/capturas");
         return null;
     }
